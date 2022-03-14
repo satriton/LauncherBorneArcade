@@ -4,3 +4,12 @@ Spécification:
 
 	Idée: Tout est dynamique, le launcher va rechercher dans un dossier spécifique (builds) tout les jeux qui y ont été déposer.
 		Ensuite, il les affiche dans le launcher
+
+
+	Dans le build de chanque jeu, rajouter une image carré et un txt description
+
+
+TODO:
+	recuperer et afficher les news du clubs
+	loadGameBtnAssets()
+	gestion des changements de pages
