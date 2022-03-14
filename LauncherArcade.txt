@@ -1,0 +1,6 @@
+Spécification:
+	-Zone pour les news du club (Txt à changer dans le dossier du build)
+	-Photo/Vidéo pour chaque jeux avec une description (Chose a fournir en plus dans le build des jeux)
+
+	Idée: Tout est dynamique, le launcher va rechercher dans un dossier spécifique (builds) tout les jeux qui y ont été déposer.
+		Ensuite, il les affiche dans le launcher
