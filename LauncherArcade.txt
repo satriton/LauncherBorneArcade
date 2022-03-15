@@ -10,6 +10,5 @@ Spécification:
 
 
 TODO:
-	recuperer et afficher les news du clubs
-	loadGameBtnAssets()
-	gestion des changements de pages
+	gameBtn doivent lancer le jeu quand on click dessus
+	check comportement pour "pathToGameMeta" à la fin de updateGameList()

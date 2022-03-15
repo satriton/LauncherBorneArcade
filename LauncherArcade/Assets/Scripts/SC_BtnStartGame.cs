@@ -8,12 +8,9 @@ public class SC_BtnStartGame : MonoBehaviour
     // public string PathToExe;
     // public Image imageComponent;
 
-    private SC_Launcher _scLauncher;
+    public string pathToExe;
+    private SC_Launcher scLauncher;
 
-    void Start()
-    {
-        // imageComponent = GetComponent<Image>();
-    }
 
     void Update()
     {
@@ -22,7 +19,14 @@ public class SC_BtnStartGame : MonoBehaviour
 
     public void OnClick()
     {
-        // call a LaunchchGame(string pathToExe) dans SC_Launcher
+        // TODO continue to check for launching game----------------------------------------------------------------------
+        if (pathToExe == null)
+        {
+            pathToExe = "chemin null";
+        }
+        scLauncher.newsZone.text = pathToExe;
 
+        if (pathToExe != null)
+            scLauncher.LaunchchGame(pathToExe);
     }
 }
