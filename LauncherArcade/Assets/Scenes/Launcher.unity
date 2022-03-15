@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameBtnPrefab: {fileID: 3743696416980231513, guid: 8dd1131a25c8d7645b72fae0398a8a5e, type: 3}
-  nbGameByPage: 1
+  nbGameByPage: 3
   newsZone: {fileID: 1496429967}
 --- !u!1 &1177591304
 GameObject:

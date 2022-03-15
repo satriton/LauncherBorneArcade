@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // using UnityEngine.UI;
+using TMPro;
 
 public class SC_BtnStartGame : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class SC_BtnStartGame : MonoBehaviour
     // public Image imageComponent;
 
     public string pathToExe;
-    private SC_Launcher scLauncher;
+    public TextMeshProUGUI gameName;
 
 
     void Update()
@@ -17,16 +18,14 @@ public class SC_BtnStartGame : MonoBehaviour
 
     }
 
-    public void OnClick()
+    public TextMeshProUGUI getTextMPro()
     {
-        // TODO continue to check for launching game----------------------------------------------------------------------
-        if (pathToExe == null)
-        {
-            pathToExe = "chemin null";
-        }
-        scLauncher.newsZone.text = pathToExe;
+        return gameName;
+    }
 
+    public void LaunchchGameBtn()
+    {
         if (pathToExe != null)
-            scLauncher.LaunchchGame(pathToExe);
+            SC_Launcher.LaunchchGame(pathToExe);
     }
 }

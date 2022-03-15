@@ -10,5 +10,4 @@ Spécification:
 
 
 TODO:
-	gameBtn doivent lancer le jeu quand on click dessus
-	check comportement pour "pathToGameMeta" à la fin de updateGameList()
+	à voire oui on rend le nom du jeu

@@ -55,22 +55,30 @@ public class SC_Launcher : MonoBehaviour
             gamesBtn[i] = gameBtn;
         }
 
+        
+
         // Charge les jeux trouver dans games
         updateGameList();
 
         // Charge les nbGameByPage
         loadGameBtnAssets(0);
 
-        //loadNews();
+        loadNews();
+
+        // LaunchchGame("C:\\Users\\panac\\OneDrive\\Bureau\\Launcher\\Games\\OverFoy_arcade\\GGJ_projetUnity.exe");
+
+        // Process.Start("C:\\Users\\panac\\OneDrive\\Bureau\\Launcher\\Games\\OverFoy_arcade\\GGJ_projetUnity.exe");
+        
 
     }
 
 
-    public void LaunchchGame(string pathToExe)
+    public static void LaunchchGame(string pathToExe)
     {
         //newsZone.text = pathToExe;
         //TODO Not working ----------------------------------------------------------------------
-        process = Process.Start(pathToExe);
+        Process.Start(pathToExe);
+        // Process.Start("C:\\Users\\panac\\OneDrive\\Bureau\\Launcher\\Games\\OverFoy_arcade\\GGJ_projetUnity.exe");
     }
 
 
@@ -123,10 +131,11 @@ public class SC_Launcher : MonoBehaviour
         {
             var gameBtnImage = gamesBtn[i].GetComponent<Image>();
             var scGameBtn = gamesBtn[i].GetComponent<SC_BtnStartGame>();
-            scGameBtn.pathToExe = games[i + index].pathToExe;
 
-            if (i + index <= games.Length)
+            if (i + index < games.Length)
             {
+                scGameBtn.getTextMPro().text = games[i + index].name;
+                scGameBtn.pathToExe = games[i + index].pathToExe;
                 float PixelsPerUnit = 100.0f;
                 string pathToGameLogo = games[i + index].pathToGameMeta + "/logo.png";
 
@@ -200,7 +209,9 @@ public class SC_Launcher : MonoBehaviour
             // }
 
             games[j].pathToExe = files[0];
-            games[j].name = files[0].Split('.')[0];
+
+            UnityEngine.Debug.Log(files[0].ToString());
+            games[j].name = files[0].Split('\\')[1].Split('.')[0];
 
             var dir = System.IO.Directory.GetDirectories(pathToGame, "GameMeta");
 
