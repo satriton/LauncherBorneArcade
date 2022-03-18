@@ -17,6 +17,8 @@ public class SC_Launcher : MonoBehaviour
     [Range(1, 4)] public int nbGameByPage;
     public static string pathToGames;
     public TextMeshProUGUI newsZone;
+    public TextMeshProUGUI pagesTxt;
+    
 
 
     private DirectoryInfo dirInfo;
@@ -55,6 +57,8 @@ public class SC_Launcher : MonoBehaviour
             gamesBtn[i] = gameBtn;
         }
 
+        UnityEngine.EventSystems.EventSystem.current.firstSelectedGameObject = gamesBtn[0];
+        pagesTxt.text = "Page 1/"+(games.Length/nbGameByPage)+1;
         
 
         // Charge les jeux trouver dans games
@@ -92,6 +96,7 @@ public class SC_Launcher : MonoBehaviour
         {
             loadGameBtnAssets(currentGameIndex - nbGameByPage);
         }
+        UnityEngine.EventSystems.EventSystem.current.firstSelectedGameObject = gamesBtn[0];
     }
 
 
@@ -196,18 +201,7 @@ public class SC_Launcher : MonoBehaviour
 
             var files = System.IO.Directory.GetFiles(pathToGame, "*.exe");
 
-            // On regarde que ce ne soit pas l'handlerUnity
-            // if (files[0].Contains("UnityCrashHandler"))
-            // {
-            //     games[j].pathToExe = files[1];
-            //     games[j].name = files[1].Split('.')[0];
-            // }
-            // else
-            // {
-            //     games[j].pathToExe = files[0];
-            //     games[j].name = files[0].Split('.')[0];
-            // }
-
+            // TODO check si c'est le bon .exe
             games[j].pathToExe = files[0];
 
             UnityEngine.Debug.Log(files[0].ToString());
@@ -215,15 +209,11 @@ public class SC_Launcher : MonoBehaviour
 
             var dir = System.IO.Directory.GetDirectories(pathToGame, "GameMeta");
 
-            //On vérifie que le dossier existe sinon on prend le dossier GameMetaDefault
-            if (dir == null)
-            {
-                games[j].pathToGameMeta = pathToGames + "../GameMetaDefault";
-            }
-            else
-            {
-                games[j].pathToGameMeta = dir[0];
-            }
+            var pathToGameMeta = pathToGame+"/GameMeta";
+            // Create the directory only if it don't existe 
+            System.IO.Directory.CreateDirectory(pathToGameMeta);
+            games[j].pathToGameMeta = pathToGameMeta;
+
             j++;
         }
     }

@@ -10,4 +10,13 @@ Spécification:
 
 
 TODO:
-	à voire oui on rend le nom du jeu
+	-Menu navigable mieux
+	Compteur de page
+	-crée dossier si il n'existe pas
+	esteregg
+	trycatch pour les loadsAssets
+	changer la police du launcher
+	prendre le nom depuis GameMeta nomJeu.png
+	teste pour choisir le bon exe si il y en a plusieurs
+	quand on quitte le process, remettre le launcher au premier plan
+	exctract l'image de l'exe si elle n'existe pas dans le GameMeta (https://ourcodeworld.com/articles/read/1422/how-to-extract-the-icon-from-an-executable-with-c-sharp-in-winforms)
